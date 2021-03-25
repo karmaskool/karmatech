@@ -31,3 +31,4 @@ hystrix:  command:
       
 management:
   endpoints:    web:      exposure:        include: hystrix.stream
+
