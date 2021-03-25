@@ -2,7 +2,5 @@ server:
   port: 9295
 
 spring:  application:    name: HYSTRIX-DASHBOARD
-  zipkin:
-    base-url: http://127.0.0.1:9411/
 
 hystrix:  dashboard:    proxy-stream-allow-list: "*"

@@ -1,8 +1,6 @@
 server:
   port: 9296
   
-spring:  application:    name: CONFIG-SERVER
-  zipkin:
-    base-url: http://127.0.0.1:9411/  cloud:    config:      server:        git:          uri: https://github.com/karmaskool/karmatech.git
+spring:  application:    name: CONFIG-SERVER  cloud:    config:      server:        git:          uri: https://github.com/karmaskool/karmatech.git
           search-paths:          - com/impact/karma/demo/config/config-server
           clone-on-start: true
