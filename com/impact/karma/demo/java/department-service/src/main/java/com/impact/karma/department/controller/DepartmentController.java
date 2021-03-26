@@ -24,9 +24,9 @@ public class DepartmentController {
 	private DepartmentService departmentService;
 
 	@PostMapping("/")
-	public Department saveDepartment(@RequestBody Department department) {
-		log.info("DepartmentController.saveDepartment({})", department.getName());
-		return departmentService.saveDepartment(department);
+	public Department save(@RequestBody Department department) {
+		log.info("DepartmentController.save({})", department.getName());
+		return departmentService.save(department);
 	}
 	
 	@GetMapping("/")
@@ -36,8 +36,8 @@ public class DepartmentController {
 	}
 	
 	@GetMapping("/{id}")
-	public Department findDepartmentById(@PathVariable("id") Long id) {
-		log.info("DepartmentController.findDepartmentById({})", id);
-		return departmentService.findDepartmentById(id);
+	public Department findById(@PathVariable("id") Long id) {
+		log.info("DepartmentController.findById({})", id);
+		return departmentService.findById(id);
 	}
 }

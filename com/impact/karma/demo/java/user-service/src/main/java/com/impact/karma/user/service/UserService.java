@@ -21,14 +21,10 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class UserService {
-	
-	@Autowired
-	private static User USER_EMPTY;
-	private static User USER_NOT_FOUND = new User(-1L, "Firstname not found", "Lastname not found", "Email not found", -1L);
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Value("${service-registry.eureka.url.department-service}")
 	private String departmentServiceUrl;
 
@@ -40,13 +36,26 @@ public class UserService {
 		return userRepository.save(user);
 	}
 
+	private DepartmentDto getDepartment(Long Id) {
+		return restTemplate.getForObject(departmentServiceUrl + Id, DepartmentDto.class);
+	}
+
+//	private DepartmentDto saveDepartment(DepartmentDto departmentDto) throws URISyntaxException {
+////		DepartmentDto department = restTemplate.getForObject("http://localhost:xxxx/departments/" +user.get().getDepartmentId() , DepartmentDto.class);
+//		URI uri = new URI(departmentServiceUrl);
+//		HttpHeaders headers = new HttpHeaders();
+//		headers.setContentType(MediaType.APPLICATION_JSON);
+//		HttpEntity<DepartmentDto> request = new HttpEntity<>(departmentDto, headers);
+//		ResponseEntity<DepartmentDto> department = restTemplate.postForEntity(uri, request, DepartmentDto.class);
+//		return department.getBody();
+//	}
+
 	public DepartmentUsersDto findDepartmentUserById(Long userId) {
 		log.info("UserService.findDepartmentUserById({})", userId);
 		DepartmentUsersDto departmentUsers = new DepartmentUsersDto();
 		Optional<User> user = userRepository.findById(userId);
-		if(user.isPresent()) {
-//			DepartmentDto department = restTemplate.getForObject("http://localhost:9001/departments/" +user.get().getDepartmentId() , DepartmentDto.class);
-			DepartmentDto department = restTemplate.getForObject(departmentServiceUrl +user.get().getDepartmentId() , DepartmentDto.class);
+		if (user.isPresent()) {
+			DepartmentDto department = getDepartment(+user.get().getDepartmentId());
 			departmentUsers.setDepartment(department);
 			departmentUsers.setUser(user.get());
 		}
