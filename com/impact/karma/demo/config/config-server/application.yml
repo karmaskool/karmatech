@@ -12,10 +12,10 @@ spring:
     base-url: http://127.0.0.1:9411/
   datasource:
 #    url: jdbc:h2:mem:${spring.application.name} #IN-MEMORY DB
-    url: jdbc:h2:file:C:/h2db/db-files/${spring.application.name} #FILESYSTEM DB PERSISTED
+    url: jdbc:h2:file:C:/h2db/db-files/h2.dbfile #FILESYSTEM DB PERSISTED
     driverClassName: org.h2.Driver
-    username: ${spring.application.name}
-    password: ${spring.application.name}@${server.port}
+    username: sa
+    password: sa
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
