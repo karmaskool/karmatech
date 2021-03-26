@@ -4,6 +4,20 @@ server:
 spring:
   application:
     name: USER-SERVICE
+  datasource:
+#    url: jdbc:h2:mem:${spring.application.name} #IN-MEMORY DB
+    url: jdbc:h2:file:C:/h2db/db-files/${spring.application.name}.h2db #FILESYSTEM DB PERSISTED
+    driverClassName: org.h2.Driver
+    username: ${spring.application.name}
+    password: ${spring.application.name}@${server.port}
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
 
 service-registry:
   eureka:
