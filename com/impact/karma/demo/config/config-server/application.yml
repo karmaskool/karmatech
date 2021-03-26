@@ -10,17 +10,3 @@ eureka:
 spring:
   zipkin:
     base-url: http://127.0.0.1:9411/
-  datasource:
-    url: jdbc:h2:mem:dbfile #IN-MEMORY DB
-#    url: jdbc:h2:file:C:/h2db/db-files/h2.dbfile #FILESYSTEM DB PERSISTED
-    driverClassName: org.h2.Driver
-    username: sa
-    password: password
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-  h2:
-    console:
-      enabled: true
