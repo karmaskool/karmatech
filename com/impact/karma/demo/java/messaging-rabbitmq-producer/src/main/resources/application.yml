@@ -1,0 +1,7 @@
+server:
+  port: 9003
+  
+spring:
+  application:
+    name: RABBITMQ-PRODUCER
+  rabbitmq:    addresses: localhost:5672 #This is the default address of RabbitMQ Server (optional whendefault!!)
