@@ -3,6 +3,8 @@
  */
 package com.impact.karma.user.service;
 
+import static java.text.MessageFormat.format;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.impact.karma.user.dto.CustomMessage;
 import com.impact.karma.user.dto.DepartmentDto;
 import com.impact.karma.user.dto.DepartmentUsersDto;
 import com.impact.karma.user.entity.User;
@@ -27,6 +30,9 @@ public class UserService {
 
 	@Value("${service-registry.eureka.url.department-service}")
 	private String departmentServiceUrl;
+	
+	@Value("${service-registry.eureka.url.messaging-rabbitmq-producer}")
+	private String rabbitmqProducerUrl;
 
 	@Autowired
 	private RestTemplate restTemplate;
@@ -64,6 +70,15 @@ public class UserService {
 
 	public List<User> findAll() {
 		return userRepository.findAll();
+	}
+
+	public String rabbitHelloWorld(User user) {
+		String m = format("UserService.rabbitHelloWorld({0}, {1});", user.getFirstName(), user.toString());
+		CustomMessage message = new CustomMessage();
+		message.setContent(m);
+		log.info(message.toString());
+		String response = restTemplate.postForObject(rabbitmqProducerUrl, message, String.class);
+		return response;
 	}
 
 }

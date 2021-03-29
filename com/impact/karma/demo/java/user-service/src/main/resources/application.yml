@@ -23,3 +23,4 @@ service-registry:
   eureka:
     url:
       department-service: http://DEPARTMENT-SERVICE/departments/
+      messaging-rabbitmq-producer: http://RABBITMQ-PRODUCER/mq/rabbitmq/publish/

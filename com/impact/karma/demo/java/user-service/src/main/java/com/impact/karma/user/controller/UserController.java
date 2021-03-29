@@ -24,6 +24,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@PostMapping("/rabbitmq/helloWorld")
+	public String rabbitHelloWorld(@RequestBody User user) {
+		log.info("UserController.rabbitHelloWorld({})", user.getFirstName());
+		return userService.rabbitHelloWorld(user);
+	}
+	
 	@PostMapping("/")
 	public User saveUser(@RequestBody User user) {
 		log.info("UserController.save({})", user.getFirstName());
