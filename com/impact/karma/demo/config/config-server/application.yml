@@ -10,3 +10,9 @@ eureka:
 spring:
   zipkin:
     base-url: http://127.0.0.1:9411/
+
+service-registry:
+  eureka:
+    url:
+      department-service: http://DEPARTMENT-SERVICE/departments/
+      messaging-rabbitmq-producer: http://RABBITMQ-PRODUCER/mq/rabbitmq/publish/
