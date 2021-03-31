@@ -31,4 +31,9 @@ public class FallBackMethodController {
 		return genericFallback("RABBITMQ-PRODUCER");
 	}
 	
+	@GetMapping("/kafkaProducerFallBack")
+	public String kafkaProducerFallBackMethod() {
+		return genericFallback("KAFKA-PRODUCER");
+	}
+	
 }

@@ -61,7 +61,7 @@ public class UserService {
 		DepartmentUsersDto departmentUsers = new DepartmentUsersDto();
 		Optional<User> user = userRepository.findById(userId);
 		if (user.isPresent()) {
-			DepartmentDto department = getDepartment(+user.get().getDepartmentId());
+			DepartmentDto department = getDepartment(user.get().getDepartmentId());
 			departmentUsers.setDepartment(department);
 			departmentUsers.setUser(user.get());
 		}
