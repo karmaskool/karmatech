@@ -30,6 +30,15 @@ spring:  application:    name: API-GATEWAY
           args:
             name: RABBITMQ-PRODUCER
             fallbackuri: forward:/rabbitmqProducerFallBack
+      - id: KAFKA-PRODUCER
+        uri: lb://KAFKA-PRODUCER
+        predicates:
+        - Path=/messaging/kafka/**
+        filters:
+        - name: CircuitBreaker
+          args:
+            name: KAFKA-PRODUCER
+            fallbackuri: forward:/kafkaProducerFallBack
 
 hystrix:  command:
     fallbackcmd:
