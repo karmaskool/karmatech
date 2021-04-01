@@ -1,9 +1,9 @@
 server:
-  port: 9006
+  port: 8504
 
 spring:
   application:
-    name: KAFKA-CONSUMER
+    name: MSG-KAFKA-CONSUMER
 
 kafka:
   bootstrap:

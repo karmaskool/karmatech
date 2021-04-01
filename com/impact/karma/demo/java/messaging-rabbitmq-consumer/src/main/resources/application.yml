@@ -1,7 +1,7 @@
 server:
-  port: 9004
+  port: 8502
   
 spring:
   application:
-    name: RABBITMQ-CONSUMER
+    name: MSG-RABBITMQ-CONSUMER
   rabbitmq:    addresses: localhost:5672 #This is the default address of RabbitMQ Server (optional whendefault!!)

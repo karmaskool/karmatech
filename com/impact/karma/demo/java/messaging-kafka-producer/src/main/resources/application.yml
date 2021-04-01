@@ -1,6 +1,6 @@
 server:
-  port: 9005
+  port: 8503
   
 spring:
   application:
-    name: KAFKA-PRODUCER
+    name: MSG-KAFKA-PRODUCER

@@ -1,6 +1,6 @@
 server:
-  port: 9295
+  port: 8102
 
-spring:  application:    name: HYSTRIX-DASHBOARD
+spring:  application:    name: CLOUD-HYSTRIX-DASHBOARD
 
 hystrix:  dashboard:    proxy-stream-allow-list: "*"

@@ -1,5 +1,5 @@
 server:
-  port: 9002
+  port: 8104
   
 spring:
   application:
@@ -22,5 +22,5 @@ spring:
 service-registry:
   eureka:
     url:
-      department-service: http://DEPARTMENT-SERVICE/departments/
-      messaging-rabbitmq-producer: http://RABBITMQ-PRODUCER/mq/rabbitmq/publish/
+      department-service: http://DEPARTMENT-SERVICE/departments/                  # URL behind CLOUD-API-GATEWAY
+      messaging-rabbitmq-producer: http://MSG-RABBITMQ-PRODUCER/mq/rabbitmq/publish/  # URL behind CLOUD-API-GATEWAY
