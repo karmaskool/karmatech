@@ -40,6 +40,7 @@ spring:  application:    name: API-GATEWAY
             name: KAFKA-PRODUCER
             fallbackuri: forward:/kafkaProducerFallBack
 
+# currently no routeId for messaging-kafka-consumer (KAFKA-CONSUMER) because not a web module
 hystrix:  command:
     fallbackcmd:
       execution:
