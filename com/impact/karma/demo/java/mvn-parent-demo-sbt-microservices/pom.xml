@@ -15,6 +15,7 @@
 	<artifactId>mvn-parent-demo-sbt-microservices</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mvn-parent-demo-sbt-microservices</name>
+	<packaging>pom</packaging>
 	<description><![CDATA[
 	Parent Maven project for all Microservices that will use Springboot starter.
 	com.impact.karma.mvn.parent.demo.sbt.microservices
