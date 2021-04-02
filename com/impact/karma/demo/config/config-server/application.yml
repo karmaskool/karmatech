@@ -13,6 +13,6 @@ spring:
 
 service-registry:
   eureka:
-    url:
+    url:    # URL behind CLOUD-API-GATEWAY
       department-service: http://DEPARTMENT-SERVICE/departments/
-      messaging-rabbitmq-producer: http://RABBITMQ-PRODUCER/mq/rabbitmq/publish/
+      messaging-rabbitmq-producer: http://MSG-RABBITMQ-PRODUCER/mq/rabbitmq/publish/    
