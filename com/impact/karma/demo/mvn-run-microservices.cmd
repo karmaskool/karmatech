@@ -1,6 +1,6 @@
-R@echo  ON
+@echo ON
 SET DRIVE=D:
-SET FILE_INPUT=C:\data\springboots.txt
+SET FILE_INPUT=D:\data\perso\git\repo\com\impact\karma\demo\springboots_ordered.txt
 SET PROJECT_FOLDER=%DRIVE%\data\perso\git\repo\com\impact\karma\demo\java
 CD %PROJECT_FOLDER%
 %DRIVE%
