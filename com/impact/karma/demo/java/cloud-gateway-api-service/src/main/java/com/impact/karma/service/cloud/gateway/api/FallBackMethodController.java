@@ -12,23 +12,28 @@ public class FallBackMethodController {
 
 	private static String FALLBACK_MESSAGE = "{0} is taking longer than expected. Please try again later";
 	
-	private String genericFallback(String serviceName) {
+	private String genericFallbackMethod(String serviceName) {
 		return format(FALLBACK_MESSAGE, serviceName);
 	}
 
 	@GetMapping("/userServiceFallBack")
-	public String userServiceFallBackMethod() {
-		return genericFallback("USER-SERVICE");
+	public String userServiceFallBack() {
+		return genericFallbackMethod("USER-SERVICE");
 	}
 
 	@GetMapping("/departmentServiceFallBack")
-	public String departmentServiceFallBackMethod() {
-		return genericFallback("DEPARTMENT-SERVICE");
+	public String departmentServiceFallBack() {
+		return genericFallbackMethod("DEPARTMENT-SERVICE");
 	}
 	
 	@GetMapping("/rabbitmqProducerFallBack")
-	public String rabbitmqProducerFallBackMethod() {
-		return genericFallback("RABBITMQ-PRODUCER");
+	public String rabbitmqProducerFallBack() {
+		return genericFallbackMethod("MSG-RABBITMQ-PRODUCER");
+	}
+	
+	@GetMapping("/kafkaProducerFallBack")
+	public String kafkaProducerFallBack() {
+		return genericFallbackMethod("MSG-KAFKA-PRODUCER");
 	}
 	
 }

@@ -1,7 +1,7 @@
 server:
-  port: 9191
+  port: 8101
   
-spring:  application:    name: API-GATEWAY
+spring:  application:    name: CLOUD-API-GATEWAY
   cloud:    gateway:      routes:
       - id: USER-SERVICE
         uri: lb://USER-SERVICE
@@ -21,16 +21,26 @@ spring:  application:    name: API-GATEWAY
           args:
             name: DEPARTMENT-SERVICE
             fallbackuri: forward:/departmentServiceFallBack
-      - id: RABBITMQ-PRODUCER
-        uri: lb://RABBITMQ-PRODUCER
+      - id: MSG-RABBITMQ-PRODUCER
+        uri: lb://MSG-RABBITMQ-PRODUCER
         predicates:
         - Path=/mq/rabbitmq/publish/**
         filters:
         - name: CircuitBreaker
           args:
-            name: RABBITMQ-PRODUCER
+            name: MSG-RABBITMQ-PRODUCER
             fallbackuri: forward:/rabbitmqProducerFallBack
+      - id: MSG-KAFKA-PRODUCER
+        uri: lb://MSG-KAFKA-PRODUCER
+        predicates:
+        - Path=/messaging/kafka/**
+        filters:
+        - name: CircuitBreaker
+          args:
+            name: MSG-KAFKA-PRODUCER
+            fallbackuri: forward:/kafkaProducerFallBack
 
+# currently no routeId for messaging-kafka-consumer (MSG-KAFKA-CONSUMER) because not a web module
 hystrix:  command:
     fallbackcmd:
       execution:

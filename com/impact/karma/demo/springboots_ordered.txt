@@ -1,0 +1,10 @@
+service-registry-eureka-server
+cloud-config-server
+cloud-gateway-api-service
+cloud-hystrix-dashboard
+department-service
+user-service
+messaging-rabbitmq-consumer
+messaging-rabbitmq-producer
+messaging-kafka-producer
+messaging-kafka-consumer

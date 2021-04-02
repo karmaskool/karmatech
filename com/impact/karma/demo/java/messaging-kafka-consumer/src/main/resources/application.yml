@@ -1,0 +1,10 @@
+server:
+  port: 8504
+
+spring:
+  application:
+    name: MSG-KAFKA-CONSUMER
+
+kafka:
+  bootstrap:
+    servers: localhost:9092

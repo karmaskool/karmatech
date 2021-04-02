@@ -4,4 +4,4 @@ server:
 eureka:  client:    register-with-eureka: false
     fetch-registry: false
 
-spring:  application:    name: SERVICE-REGISTRY
+spring:  application:    name: SERVICE-REGISTRY-EUREKA

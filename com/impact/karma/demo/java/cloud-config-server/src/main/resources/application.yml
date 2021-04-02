@@ -1,6 +1,9 @@
 server:
-  port: 9296
+  port: 8100
   
-spring:  application:    name: CONFIG-SERVER  cloud:    config:      server:        git:          uri: https://github.com/karmaskool/karmatech.git
+spring:  application:    name: CLOUD-CONFIG-SERVER  cloud:    config:      server:        git:          uri: https://github.com/karmaskool/karmatech.git
+          default-label: develop
+          basedir: c:/data/gitCloud/
+          force-pull: true
           search-paths:          - com/impact/karma/demo/config/config-server
           clone-on-start: true

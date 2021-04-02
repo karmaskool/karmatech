@@ -15,17 +15,34 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>user-service</name>
 	<description>Spring Boot for User Service</description>
+
 	<properties>
 		<java.version>11</java.version>
-		<!-- ADD THIS PROPERTY TO LINK WITH SERVICE-REGISTRY-EUREKA-SERVER -->
 		<spring-cloud.version>Hoxton.SR10</spring-cloud.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss'Z'</maven.build.timestamp.format>
+		<encoding>UTF-8</encoding>
+		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+		<project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
+		<archetype.encoding>${encoding}</archetype.encoding>
+		<git.url>https://github.com/karmaskool/karmatech.git</git.url>
+		<git.connection>scm:git:git@github.com:karmaskool/karmatech.git</git.connection>
+		<git.developerConnection>${git.connection}</git.developerConnection>
 	</properties>
+
+	<scm>
+		<!-- in order to get this scm configuration to work in WINDOWS you have 
+			to execute some command in terminal: 1) ssh-keygen -t rsa -b 4096 -C "yours@email.ch" 
+			2) add the ssh key to the ssh-agent: eval $(ssh-agent -s) -->
+		<connection>${git.connection}</connection>
+		<developerConnection>${git.developerConnection}</developerConnection>
+		<url>${git.url}</url>
+		<tag>@{project.version}</tag>
+	</scm>
+	
 	<dependencies>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
@@ -38,13 +55,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		<!-- EUREKA -->
-		<!-- ADD THIS PROPERTY TO LINK WITH SERVICE-REGISTRY-EUREKA-SERVER -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		<!-- EUREKA -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -71,8 +85,6 @@
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
-			<!-- EUREKA -->
-			<!-- ADD THIS PROPERTY TO LINK WITH SERVICE-REGISTRY-EUREKA-SERVER -->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -80,11 +92,19 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<!-- EUREKA -->
 		</dependencies>
 	</dependencyManagement>
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>external.atlassian.jgitflow</groupId>
+				<artifactId>jgitflow-maven-plugin</artifactId>
+				<version>1.0-m5.1</version>
+				<configuration>
+					<!-- For specific plugin configuration options, see the Goals documentation 
+						page -->
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
