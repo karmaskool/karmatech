@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.linuxtools.docker.ui.buildDockerImageLaunchConfigurationType">
+    <stringAttribute key="dockerConnection" value="docker@localhost:2375"/>
+    <stringAttribute key="dockerfileName" value="Dockerfile"/>
+    <booleanAttribute key="forcerm" value="false"/>
+    <booleanAttribute key="noCache" value="false"/>
+    <booleanAttribute key="quietBuild" value="false"/>
+    <stringAttribute key="repoName" value="sbt-demo/messaging-rabbitmq-consumer:0.0.1"/>
+    <booleanAttribute key="rm" value="false"/>
+    <stringAttribute key="sourcePathLocation" value="/messaging-rabbitmq-consumer"/>
+    <booleanAttribute key="sourcePathWorkspaceRelativeLocation" value="true"/>
+</launchConfiguration>
