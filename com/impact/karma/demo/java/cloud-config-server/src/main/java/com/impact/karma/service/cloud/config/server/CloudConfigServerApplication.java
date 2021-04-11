@@ -15,7 +15,7 @@ public class CloudConfigServerApplication {
 	
 	public static void main(String[] args) throws IOException {
 		ConfigurableApplicationContext app = SpringApplication.run(CloudConfigServerApplication.class, args);
-		app.getBean(CloudConfigServerConfiguration.class).printConfig();
+		app.getBean(CloudConfigServerConfiguration.class).printGitConfig();
 	}
 
 }
