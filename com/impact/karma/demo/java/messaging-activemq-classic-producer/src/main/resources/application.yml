@@ -1,0 +1,13 @@
+server:
+  port: 8505
+  
+spring:
+  application:
+    name: MSG-ACTIVEMQ5-CLASSIC-PRODUCER
+
+activemq:
+  broker:
+    url: tcp://localhost:61616 #This is the default tcp address of ActiveMQ Server; @see <transportConnector> in apache-activemq-5.x.y/conf/activemq.xml
+  queue:
+    order: order-queue
+    orderResponse: orderResponse-queue
