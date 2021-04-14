@@ -1,0 +1,14 @@
+server:
+   port: 8601
+
+spring:
+  application:
+    name: DATA-SQL-MYSQL-CRUD
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:mysql://localhost:6603/mysql
+    username: root
+    password: r2s456

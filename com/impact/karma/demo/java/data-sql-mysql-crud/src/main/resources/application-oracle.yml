@@ -1,0 +1,40 @@
+server:
+   port: 8601
+
+spring:
+  application:
+    name: DATA-SQL-MYSQL-CRUD
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    username: SYSTEM
+    password: oracle
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.Oracle10gDialect
+    hibernate:
+      ddl-auto: create
+
+#show sql values
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
+
+hibernate:
+  show_sql: true
+#spring.jpa.hibernate.logging.level.sql =FINE
+#show sql statement
+#logging.level.org.hibernate.SQL=debug
+
+#<dependency>
+#  <groupId>com.oracle</groupId>
+#  <artifactId>ojdbc6</artifactId>
+#  <version>11.2.0.3</version>
+#</dependency>
