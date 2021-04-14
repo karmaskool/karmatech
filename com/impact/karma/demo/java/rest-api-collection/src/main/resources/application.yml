@@ -1,0 +1,11 @@
+server:
+   port: 8801
+
+spring:
+  application:
+    name: REST-API-COLLECTION
+
+api:
+  openweathermap:
+    pkid: 44fc82f03017ca087fdcc8434d18b2f1
+    
