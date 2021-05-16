@@ -1,0 +1,9 @@
+server:
+  port: 9002
+  
+spring:
+  application:
+    name: DATA-NOSQL-MONGODB-CRUD
+  data:
+    mongodb:
+      uri: mongodb://admin:pass@localhost:27017/KarmaDB?authMode=scram-sha1

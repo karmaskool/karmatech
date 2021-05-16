@@ -1,0 +1,16 @@
+server:
+   port: 9001
+
+spring:
+  application:
+    name: DATA-MYSQLMONGODB-CRUD
+  data:
+    mongodb:
+#      uri: mongodb://admin:pass@localhost:27017/KarmaDB
+#      host: localhost
+#      port: 27017
+#      database: KarmaDB
+#      username: admin
+#      password: "pass"
+#      replica-set-name:
+      uri: mongodb://admin:pass@localhost:27017/KarmaDB?authSource=admin
